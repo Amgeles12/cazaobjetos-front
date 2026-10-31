@@ -30,7 +30,12 @@
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }
 body {
-  margin: 0; background: #e6eadf; color: var(--oscuro);
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 12% 12%, rgba(173, 226, 93, .2), transparent 42%),
+    radial-gradient(ellipse at 88% 88%, rgba(49, 123, 34, .12), transparent 44%),
+    #e6eadf;
+  color: var(--oscuro);
   font-family: var(--font-ui); font-size: 15px; line-height: 22px;
 }
 button, input, select, textarea { font: inherit; color: inherit; }
@@ -41,8 +46,18 @@ a { color: inherit; text-decoration: none; }
 /* ===== Shell (celular centrado en escritorio) ===== */
 .app {
   width: 100%; max-width: 480px; margin: 0 auto; min-height: 100%; min-height: 100dvh;
-  background: var(--fondo); display: flex; flex-direction: column;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(173, 226, 93, .16), transparent 38%),
+    radial-gradient(ellipse at 0% 100%, rgba(49, 123, 34, .08), transparent 42%),
+    var(--fondo);
+  display: flex; flex-direction: column;
   position: relative;
+}
+.app--login {
+  background:
+    radial-gradient(ellipse at 8% 12%, rgba(173, 226, 93, .34), transparent 42%),
+    radial-gradient(ellipse at 92% 88%, rgba(49, 123, 34, .2), transparent 46%),
+    linear-gradient(145deg, #f8faef 0%, #edf3e6 52%, #f5f7f1 100%);
 }
 @media (min-width: 520px) and (max-width: 899px) {
   .app { max-width: 760px; box-shadow: 0 0 40px rgba(30,33,43,.12); }
@@ -60,7 +75,9 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-mono); font-weight: 500; font-size: 12px; line-height: 16px;
   padding: 2px 6px; border-radius: var(--radius-sm);
 }
-.topbar__brand { font-size: 11px; letter-spacing: .08em; color: #c9ccd4; text-transform: uppercase; }
+.utch-logo-frame { display: inline-flex; align-items: center; justify-content: center; flex: none; padding: 3px 6px; background: #fff; border-radius: var(--radius-sm); }
+.utch-logo { display: block; width: 52px; height: auto; }
+.topbar__brand { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .08em; color: #c9ccd4; text-transform: uppercase; }
 .topbar__title { margin: 0; font-size: 22px; line-height: 28px; font-weight: 700; color: #fff; }
 .icon-btn { background: none; border: 0; color: #fff; padding: 8px; border-radius: var(--radius-pill); display: grid; place-items: center; min-width: 44px; min-height: 44px; }
 .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--verde); color: #fff; border: 0; display: grid; place-items: center; }
@@ -218,6 +235,8 @@ a { color: inherit; text-decoration: none; }
 .pager .btn--secondary { background: var(--superficie-tenue); }
 .toast { position: fixed; bottom: 88px; left: 50%; transform: translateX(-50%); background: var(--oscuro); color: #fff; padding: 10px 16px; border-radius: var(--radius-md); z-index: 50; max-width: 90%; }
 .login { min-height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 24px 16px; }
+.app--login .login { flex: 1; }
+.login__logo { display: block; width: min(160px, 42vw); height: auto; margin-bottom: 12px; }
 .login h1 { margin: 0; font-size: 22px; line-height: 28px; }
 @media (prefers-reduced-motion: no-preference) { .btn, .filter, .chip { transition: background .15s; } }
 

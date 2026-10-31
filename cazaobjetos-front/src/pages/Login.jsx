@@ -28,10 +28,10 @@ export default function Login() {
   }
 
   return (
-    <div className="app">
+    <div className="app app--login">
       <div className="login">
         <div>
-          <span className="tag-utch">UTCH</span>
+          <img className="login__logo" src="/utch-logo.png" alt="Universidad Tecnológica de Chihuahua" />
           <h1>Inicia sesión en CazaObjetos</h1>
           <p className="muted">Solo la comunidad UTCH puede reclamar objetos. Entra con tu correo institucional.</p>
           <InstallApp />

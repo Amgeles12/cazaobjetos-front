@@ -37,13 +37,20 @@ export default function Layout() {
         <div className="topbar__main">
           {!enReclamo && (
             <div className="topbar__brand">
-              <span className="tag-utch">UTCH</span> Caza objetos UTCH
+              <span className="utch-logo-frame">
+                <img className="utch-logo" src="/utch-logo.png" alt="Universidad Tecnológica de Chihuahua" />
+              </span>
+              Caza objetos UTCH
             </div>
           )}
           <h1 className="topbar__title">{titulo}</h1>
         </div>
         <InstallApp compact />
-        {enReclamo && <span className="tag-utch">UTCH</span>}
+        {enReclamo && (
+          <span className="utch-logo-frame">
+            <img className="utch-logo" src="/utch-logo.png" alt="Universidad Tecnológica de Chihuahua" />
+          </span>
+        )}
         {!enReclamo && (
           <button className="icon-btn" aria-label="Buscar" onClick={() => navigate('/')}>
             <IconSearch />

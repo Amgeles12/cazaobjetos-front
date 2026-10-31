@@ -14,6 +14,7 @@ Usuarios de prueba (cualquier contraseña): `estudiante@utch.edu.mx`, `docente@u
 
 ## Estructura
 - `src/index.css` — tokens y componentes de la guía de estilo (colores, tipografía, chips, botones…)
+- `public/utch-logo.png` — logotipo de la Universidad Tecnológica de Chihuahua
 - `src/lib/constants.js` — categorías, casetas y estados de reclamo
 - `src/pages/` — Explorar, Reclamo, MisReclamos, Vigilancia, Reportar, Login
 - `src/components/` — Layout (barra superior e inferior), Chip, ObjectCard, Toast, Icons
