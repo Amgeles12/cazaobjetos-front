@@ -31,9 +31,9 @@ Usuarios de prueba (cualquier contraseña): `estudiante@utch.edu.mx`, `docente@u
   npm run build
   npm run preview
   ```
-  y abre http://localhost:4173. Luego Chrome/Edge muestra el botón «Instalar» (o el ícono en la barra de direcciones).
+  y abre http://localhost:4173. El botón «Instalar» aparece en el inicio de sesión y en la barra superior; abre el diálogo nativo cuando el navegador lo permite y muestra instrucciones manuales en los demás casos.
 - Para instalarla en un celular necesita **HTTPS**: súbanla a Vercel o Netlify.
-- Android/Chrome: aparece «Instalar». iPhone/Safari: Compartir → «Agregar a pantalla de inicio».
+- Android/Chrome: botón «Instalar» o menú ⋮ → «Instalar aplicación». iPhone/Safari: botón «Instalar» → Compartir → «Agregar a pantalla de inicio».
 - Sin conexión abre la app y lo ya cargado; los datos de la API siempre van a la red (no se guardan en caché) y se muestra un aviso.
-- En pantallas ≥ 900 px el menú pasa a barra lateral y los objetos a rejilla; en celular se queda la barra inferior.
+- En celular se conserva la navegación inferior; en tabletas (520–899 px) el contenido y las tarjetas aprovechan el ancho disponible; desde 900 px el menú pasa a barra lateral y los objetos a rejilla.
 - Si la app se despliega en una subcarpeta, cambia `start_url` y `scope` en `vite.config.js`.

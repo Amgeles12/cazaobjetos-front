@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext.jsx'
 import { USE_MOCK } from '../lib/api.js'
+import InstallApp from '../components/InstallApp.jsx'
 
 export default function Login() {
   const { login } = useAuth()
@@ -33,6 +34,7 @@ export default function Login() {
           <span className="tag-utch">UTCH</span>
           <h1>Inicia sesión en CazaObjetos</h1>
           <p className="muted">Solo la comunidad UTCH puede reclamar objetos. Entra con tu correo institucional.</p>
+          <InstallApp />
         </div>
         <form className="card" onSubmit={onSubmit} noValidate>
           <div className="field">

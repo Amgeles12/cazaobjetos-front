@@ -1,7 +1,8 @@
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
-import { useInstall, useOnline } from '../lib/pwa.js'
-import { IconBack, IconDownload, IconClipboard, IconGrid, IconPlus, IconSearch, IconShield, IconUser } from './Icons.jsx'
+import { useOnline } from '../lib/pwa.js'
+import InstallApp from './InstallApp.jsx'
+import { IconBack, IconClipboard, IconGrid, IconPlus, IconSearch, IconShield, IconUser } from './Icons.jsx'
 
 const TITULOS = {
   '/': 'Explorar',
@@ -14,7 +15,6 @@ export default function Layout() {
   const { pathname } = useLocation()
   const navigate = useNavigate()
   const { usuario, logout, esStaff } = useAuth()
-  const { puedeInstalar, instalar } = useInstall()
   const online = useOnline()
   const enReclamo = pathname.startsWith('/reclamo/')
   const titulo = enReclamo ? 'Flujo de reclamo' : TITULOS[pathname] || 'CazaObjetos'
@@ -42,11 +42,7 @@ export default function Layout() {
           )}
           <h1 className="topbar__title">{titulo}</h1>
         </div>
-        {puedeInstalar && (
-          <button className="icon-btn install-btn" onClick={instalar} aria-label="Instalar la app" title="Instalar la app">
-            <IconDownload /> <span className="install-btn__txt">Instalar</span>
-          </button>
-        )}
+        <InstallApp compact />
         {enReclamo && <span className="tag-utch">UTCH</span>}
         {!enReclamo && (
           <button className="icon-btn" aria-label="Buscar" onClick={() => navigate('/')}>

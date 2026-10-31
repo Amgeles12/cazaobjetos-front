@@ -6,6 +6,7 @@ export function useInstall() {
   const [instalada, setInstalada] = useState(
     window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true
   )
+  const [mostrarAyuda, setMostrarAyuda] = useState(false)
 
   useEffect(() => {
     const antes = (e) => { e.preventDefault(); setEvento(e) }
@@ -19,12 +20,28 @@ export function useInstall() {
   }, [])
 
   async function instalar() {
-    if (!evento) return
-    evento.prompt()
-    await evento.userChoice
-    setEvento(null)
+    if (!evento) {
+      setMostrarAyuda(true)
+      return
+    }
+
+    try {
+      await evento.prompt()
+      const { outcome } = await evento.userChoice
+      setEvento(null)
+      if (outcome === 'dismissed') setMostrarAyuda(true)
+    } catch (error) {
+      setEvento(null)
+      setMostrarAyuda(true)
+      console.error('No se pudo abrir el diálogo de instalación de CazaObjetos.', error)
+    }
   }
-  return { puedeInstalar: !!evento && !instalada, instalar }
+  return {
+    instalada,
+    mostrarAyuda,
+    cerrarAyuda: () => setMostrarAyuda(false),
+    instalar,
+  }
 }
 
 export function useOnline() {
